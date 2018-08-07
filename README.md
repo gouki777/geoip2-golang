@@ -1,23 +1,10 @@
 # GeoIP2 Reader for Go #
 
-[![Build Status](https://travis-ci.org/oschwald/geoip2-golang.png?branch=master)](https://travis-ci.org/oschwald/geoip2-golang)
-[![GoDoc](https://godoc.org/github.com/oschwald/geoip2-golang?status.png)](https://godoc.org/github.com/oschwald/geoip2-golang)
-
-This library reads MaxMind [GeoLite2](http://dev.maxmind.com/geoip/geoip2/geolite2/)
-and [GeoIP2](http://www.maxmind.com/en/geolocation_landing) databases.
-
-This library is built using
-[the Go maxminddb reader](https://github.com/oschwald/maxminddb-golang).
-All data for the database record is decoded using this library. If you only
-need several fields, you may get superior performance by using maxminddb's
-`Lookup` directly with a result struct that only contains the required fields.
-(See [example_test.go](https://github.com/oschwald/maxminddb-golang/blob/master/example_test.go)
-in the maxminddb repository for an example of this.)
 
 ## Installation ##
 
 ```
-go get github.com/oschwald/geoip2-golang
+go get -v -u -x github.com/oschwald/geoip2-golang
 ```
 
 ## Usage ##
@@ -25,6 +12,12 @@ go get github.com/oschwald/geoip2-golang
 [See GoDoc](http://godoc.org/github.com/oschwald/geoip2-golang) for
 documentation and examples.
 
+## download ##
+```
+下载geoip-db地址：http://geolite.maxmind.com/download/geoip/database/GeoLite2-City.tar.gz  
+解压到本地目录
+
+```
 ## Example ##
 
 ```go
@@ -38,7 +31,7 @@ import (
 )
 
 func main() {
-    db, err := geoip2.Open("GeoIP2-City.mmdb")
+    db, err := geoip2.Open("./GeoLite2-City_20180703/GeoLite2-City.mmdb")
     if err != nil {
             log.Fatal(err)
     }
@@ -77,7 +70,13 @@ git submodule update
 Execute test suite:
 
 ```
-go test
+[root@localhost ~]# go run ip.go 
+Portuguese (BR) city name: 杭州
+English subdivision name: Zhejiang
+Russian country name: China
+ISO country code: CN
+Time zone: Asia/Shanghai
+Coordinates: 30.2936, 120.1614
 ```
 
 ## Contributing ##
