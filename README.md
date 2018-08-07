@@ -7,18 +7,18 @@
 go get -v -u -x github.com/oschwald/geoip2-golang
 ```
 
-## Usage ##
+## 官方文档 ##
 
 [See GoDoc](http://godoc.org/github.com/oschwald/geoip2-golang) for
 documentation and examples.
 
-## download ##
+## 下载map ##
 ```
 下载geoip-db地址：http://geolite.maxmind.com/download/geoip/database/GeoLite2-City.tar.gz  
 解压到本地目录
 
 ```
-## Example ##
+## 代码 ##
 
 ```go
 package main
@@ -58,16 +58,7 @@ func main() {
 }
 ```
 
-## Testing ##
-
-Make sure you checked out test data submodule:
-
-```
-git submodule init
-git submodule update
-```
-
-Execute test suite:
+测试:
 
 ```
 [root@localhost ~]# go run ip.go 
@@ -78,12 +69,3 @@ ISO country code: CN
 Time zone: Asia/Shanghai
 Coordinates: 30.2936, 120.1614
 ```
-
-## Contributing ##
-
-Contributions welcome! Please fork the repository and open a pull request
-with your changes.
-
-## License ##
-
-This is free software, licensed under the ISC license.
